@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K. Hari Priya - Portfolio</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #4a90e2;
+      --secondary-color: #2c3e50;
+      --bg-color: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-color: #333333;
+      --light-text: #666666;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: var(--card-bg);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--secondary-color);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--secondary-color);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 2rem;
+      padding: 3rem 0;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-text h2 {
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      color: var(--light-text);
+      max-width: 500px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Circular Profile Image Placeholder */
+    .profile-img-container {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--primary-color);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      background-color: #e0e0e0;
+    }
+
+    .profile-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Section Styling */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--secondary-color);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+
+    /* Timeline / Education Cards */
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border-left: 4px solid var(--primary-color);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      color: var(--secondary-color);
+    }
+
+    .card .institution {
+      font-weight: 600;
+      color: var(--primary-color);
+      margin: 0.25rem 0;
+    }
+
+    .card .score {
+      display: inline-block;
+      margin-top: 0.5rem;
+      background: #eef5fc;
+      color: var(--primary-color);
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    /* Skills Badges */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .skill-badge {
+      background-color: var(--card-bg);
+      color: var(--secondary-color);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      border: 1px solid #ddd;
+      font-weight: 500;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #357abd;
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--secondary-color);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <div class="logo">K. Hari Priya</div>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    
+    <!-- Hero / About Section -->
+    <section id="about" class="hero">
+      <div class="hero-text">
+        <h1>K. Hari Priya</h1>
+        <h2>3rd Year Computer Science Student</h2>
+        <p>
+          Passionate Computer Science student at Vignan University with a strong background in software engineering, algorithms, and web development. Enthusiastic about problem-solving and developing software solutions.
+        </p>
+        <a href="#contact" class="btn">Get in Touch</a>
+      </div>
+      
+      <!-- Circular Image Container -->
+      <div class="profile-img-container">
+        <!-- Replace "your-photo.jpg" with your actual photo file name -->
+        <img src="WhatsApp Image 2026-09-23 at 9.58.30 AM.jpeg" alt="K. Hari Priya Photo" id="profile-pic">
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+      <div class="education-grid">
+        
+        <!-- College -->
+        <div class="card">
+          <h3>B.Tech - Computer Science Engineering</h3>
+          <div class="institution">Vignan University</div>
+          <p>Currently in 3rd Year</p>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="card">
+          <h3>Class XII (Intermediate)</h3>
+          <div class="institution">Sri Chaitanya</div>
+          <span class="score">75%</span>
+        </div>
+
+        <!-- High School -->
+        <div class="card">
+          <h3>Class X (SSC)</h3>
+          <div class="institution">G. K. R High School</div>
+          <span class="score">75%</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-list">
+        <span class="skill-badge">C Language</span>
+        <span class="skill-badge">HTML5 & CSS3</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">Data Structures</span>
+        <span class="skill-badge">Algorithms</span>
+        <span class="skill-badge">Web Development</span>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="card">
+        <p><strong>Name:</strong> K. Hari Priya</p>
+        <p><strong>University:</strong> Vignan University</p>
+        <p><strong>Email:</strong> your.email@example.com</p>
+        <p><strong>LinkedIn:</strong> <a href="#" target="_blank">linkedin.com/in/yourprofile</a></p>
+        <p><strong>GitHub:</strong> <a href="#" target="_blank">github.com/yourprofile</a></p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 K. Hari Priya. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
